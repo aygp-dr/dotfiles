@@ -1,0 +1,71 @@
+# Global gitignore file for AYGP dotfiles
+# Place in ~/.gitignore_global and run:
+# git config --global core.excludesfile ~/.gitignore_global
+
+# Sensitive files
+.netrc
+.authinfo*
+.pinerc
+.smb-credentials*
+.webdav-*
+.envrc
+.env
+.env.*
+.claude.json
+*token*
+*secret*
+*key*
+*.pem
+*.key
+*.gpg
+
+# Editor files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+.project
+.settings/
+.classpath
+.factorypath
+*.sublime-*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build and dependency directories
+node_modules/
+bower_components/
+vendor/
+dist/
+build/
+target/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.egg-info/
+.eggs/
+*.egg
+
+# Emacs
+\#*\#
+.\#*
+.emacs.desktop
+.emacs.desktop.lock
+auto-save-list/

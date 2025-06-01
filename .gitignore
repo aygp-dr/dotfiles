@@ -1,0 +1,26 @@
+# Ignore backup files
+*.bak
+*~
+*.swp
+*.swo
+
+# Ignore sensitive files that might be accidentally copied
+*.pem
+*.key
+.netrc
+.authinfo
+.pinerc
+.envrc
+.claude.json
+*.token
+token.*
+*_token
+*_key
+*secrets*
+
+# Ignore OS specific files
+.DS_Store
+Thumbs.db
+
+# Ignore directory for local customizations
+local/

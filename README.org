@@ -1,0 +1,111 @@
+#+TITLE: AYGP Dotfiles
+#+AUTHOR: Aidan Pace
+#+EMAIL: apace@defrecord.com
+
+* AYGP Dotfiles
+
+Configuration files for agent-driven development environments on FreeBSD, with primary focus on Emacs and Lisp development workflows.
+
+** Overview
+
+This repository contains configuration files for:
+
+- Emacs configuration (primary focus)
+- Shell environments (Bash, Zsh)
+- FreeBSD-specific settings
+- Git configuration
+- Agent identity management
+
+The configuration is optimized for FreeBSD (14.2-RELEASE), with additional support for Linux and macOS.
+
+** Directory Structure
+
+#+begin_src
+dotfiles/
+├── editors/
+│   ├── emacs/       # Emacs configuration (primary focus)
+│   │   ├── init.el  # Main configuration
+│   │   ├── lisp/    # Custom Lisp functions and extensions
+│   │   └── themes/  # Custom themes
+├── shell/           # Shell configurations
+├── git/             # Git configuration
+├── tmux/            # Tmux configuration
+├── scripts/         # Utility scripts
+├── bin/             # User scripts and utilities
+├── xdg-config/      # XDG-compliant configurations
+├── CLAUDE.md        # Guide for Claude and other AI assistants
+├── Makefile         # Build system for dotfiles
+├── install.sh       # Installation script
+└── README.org       # This file
+#+end_src
+
+** Emacs Configuration
+
+The Emacs configuration includes:
+
+- Org-mode customizations
+- SLIME setup for Common Lisp development
+- Clojure/CIDER integration
+- Geiser for Scheme development
+- Custom keybindings and themes
+- TRAMP configuration for remote editing
+- Verbiste integration for French/Italian verb conjugation
+
+** Setup Instructions
+
+#+begin_src bash
+# Clone the repository
+git clone https://github.com/aygp-dr/dotfiles.git
+cd dotfiles
+
+# Install the dotfiles (uses existing ~/.anthropic)
+make install
+
+# Validate configuration
+make check-config
+#+end_src
+
+** Emacs Quick Reference
+
+| Keybinding    | Description                          |
+|--------------+--------------------------------------|
+| C-c o a      | org-agenda                           |
+| C-c o c      | org-capture                          |
+| C-c g s      | magit-status                         |
+| C-c e b      | eval-buffer (Lisp modes)             |
+| C-c e r      | eval-region (Lisp modes)             |
+| C-c , ,      | slime-template insertion             |
+| C-c t t      | Toggle between implementation/test   |
+| C-c p f      | Find file in project                 |
+| C-c h .      | Describe symbol at point             |
+| C-c a f      | Find AYGP function                   |
+| C-c j        | Journal commands prefix              |
+| C-c j t      | Today's journal entry                |
+| C-c j l      | List journal entries                 |
+| C-c v        | Verbiste commands prefix             |
+| C-c v f      | Conjugate French verb                |
+| C-c v i      | Conjugate Italian verb               |
+
+** FreeBSD Specific Features
+
+- TTY keyboard customization
+- Dbus configuration
+- Port/package management helpers
+- ZFS snapshot automation
+- Proper locale and environment settings
+
+** Integration with dotanthropic
+
+This repository complements the [[https://github.com/aygp-dr/dotanthropic][dotanthropic]] project, reusing the existing ~/.anthropic directory structure for agent operations:
+
+#+begin_src bash
+# Check identity against AYGP requirements
+make check-identity
+
+# Update to latest configuration
+make update
+#+end_src
+
+** License
+
+Private repository. Copyright © 2025.
