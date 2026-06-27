@@ -1,4 +1,33 @@
-# Dotfiles for Agent-Driven Development
+# Dotfiles for Emacs/Lisp-focused Environment
+
+## Identity & Authorization
+- Identity retrieval: `gh api user` to fetch GitHub identity information
+- Agent identity: Use AYGP identity from user manual
+- Authorization: Set up GPG/SSH keys as per AYGP user manual
+- Validation: `make check-identity` to validate identity configuration
+
+## Environment Information
+- Primary platform: **FreeBSD 14.2-RELEASE**
+- Additional platforms: Linux, macOS (occasional use)
+- Main editor: **Emacs** with extensive customization
+- Shell: Bash/Zsh with FreeBSD-specific configurations
+- Version control: Git with GitHub integration
+
+## FreeBSD Package Requirements
+- emacs (required): `pkg install emacs`
+- git (required): `pkg install git`
+- verbiste (optional): `pkg install verbiste` - French/Italian verb conjugation
+- sbcl (optional): `pkg install sbcl` - Common Lisp development
+- rlwrap (recommended): `pkg install rlwrap` - Better REPL experience
+
+## Emacs Configuration Guidelines
+- Use `init.el` for main configuration
+- Custom functions go in `./lisp/` directory 
+- Autoloads for improved startup performance
+- org-mode as primary organization tool
+- SLIME/SLY for Common Lisp development
+- CIDER for Clojure development
+- Properly namespaced functions with `aygp-` prefix
 
 ## Build & Test Commands
 - **Installation**: `make install` or `./install.sh` to bootstrap environment
@@ -9,6 +38,20 @@
 - **Test all configs**: `make test` or `make test-config` to verify all settings
 - **Update**: `git pull && make update` to sync latest configurations
 - **Reset**: `make reset` to restore environment to baseline state
+
+## Directory Structure
+- Use existing ~/.anthropic from dotanthropic project
+- ~/.emacs.d/ for Emacs configuration
+- ~/.config/ for XDG-compliant configurations
+- ~/bin/ for user scripts and utilities
+
+## Lisp Development Standards
+- Use meaningful names with proper documentation
+- Include docstrings for all functions
+- Manage dependencies explicitly
+- Follow consistent indentation (2 spaces for Lisp)
+- Test all functions when possible
+- Prefer functional programming patterns
 
 ## Code Style Guidelines
 - **Emacs Lisp**: 
@@ -31,4 +74,18 @@
   - Document proper privileges for all scripts
   - Make all configuration scripts idempotent (safely re-runnable)
 
-This environment supports fluid collaboration between AYGP and human operators while maintaining security boundaries. For complete details on protocols and integration, see the AYGP user manual.
+## Collaboration Guidelines
+- Maintain separation between human and agent workspaces
+- Document all complex Lisp functions with examples
+- Use feature branches for development
+- Follow FreeBSD port conventions when applicable
+- Ensure cross-platform compatibility in shell scripts
+
+## Integration Points
+- Emacs server for client connections
+- org-protocol for capturing from browser
+- TRAMP for remote editing
+- Magit for Git operations
+- org-babel for literate programming
+
+This environment supports fluid collaboration between human operators (primarily jwalsh) and autonomous agents, with a strong focus on Emacs and Lisp development on FreeBSD.
